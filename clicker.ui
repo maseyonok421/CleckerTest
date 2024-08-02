@@ -20,7 +20,7 @@
    <string>Clicker</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.166, y1:0.142, x2:0.585195, y2:0.966, stop:0 rgba(255, 60, 76, 255), stop:1 rgba(169, 107, 169, 255))</string>
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.116927, y1:0.148, x2:0.63, y2:0.920455, stop:0 rgba(220, 148, 243, 255), stop:0.765854 rgba(185, 223, 200, 255))</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="clickFrame">
@@ -38,7 +38,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -80,7 +80,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>31</x>
@@ -102,7 +102,7 @@
         <item>
          <widget class="QLabel" name="clickUpdLbl1">
           <property name="text">
-           <string>ClickUpd1</string>
+           <string>10</string>
           </property>
          </widget>
         </item>
@@ -120,7 +120,7 @@
         <item>
          <widget class="QLabel" name="clickUpdLbl2">
           <property name="text">
-           <string>ClickUpd2</string>
+           <string>2500</string>
           </property>
          </widget>
         </item>
@@ -138,7 +138,7 @@
         <item>
          <widget class="QLabel" name="clickUpdLbl3">
           <property name="text">
-           <string>ClickUpd3</string>
+           <string>12500</string>
           </property>
          </widget>
         </item>
@@ -169,7 +169,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>21</x>
@@ -196,7 +196,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="cpsUpdlbl1">
+         <widget class="QLabel" name="cpsUpdLbl1">
           <property name="text">
            <string>CpsUpd1</string>
           </property>
