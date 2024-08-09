@@ -2,13 +2,13 @@
 #include "ui_clicker.h"
 
 long long cps { 0 }, clickDmg { 1 }, balance { 0 };
-const long long clickUpgradesBaseCost[] = { 25, 7500, 85500 };
-const long long   cpsUpgradesBaseCost[] = { 10, 2500, 12500 };
-const long long clickUpgrades[] = { 1, 10, 50 };
-const long long   cpsUpgrades[] = { 1, 8 , 23 };
+constexpr long long clickUpgradesBaseCost[] = { 25, 7500, 85500 };
+constexpr long long   cpsUpgradesBaseCost[] = { 10, 2500, 12500 };
+constexpr long long clickUpgrades[] = { 1, 10, 50 };
+constexpr long long   cpsUpgrades[] = { 1, 8 , 23 };
 long long curClickUpgrades[] = { 0, 0, 0 };
 long long   curCpsUpgrades[] = { 0, 0, 0 };
-const double coef = 3.14;
+constexpr double coef = 2.63;
 
 Clicker::Clicker(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +19,7 @@ Clicker::Clicker(QWidget *parent)
     updTimer = new QTimer(this);
     connect(updTimer, &QTimer::timeout, this, on_upd_timer_timeout);
     updTimer->start(1000);
+    updateScreen();
 
 }
 
@@ -30,8 +31,8 @@ Clicker::~Clicker()
 void Clicker::updateScreen(){
 
     ui->balanceLbl->setText(QString::number(balance));
-    ui->dmgLbl->setText(QString::number(clickDmg));
-    ui->cpsLbl->setText(QString::number(cps));
+    ui->dmgLbl->setText("Dmg: " + QString::number(clickDmg));
+    ui->cpsLbl->setText("Cps: " + QString::number(cps));
 
     ui->clickUpdLbl1->setText(QString::number((long long)
     (clickUpgradesBaseCost[0]*pow(coef, curClickUpgrades[0]))));
