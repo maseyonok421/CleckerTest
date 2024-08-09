@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QString>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
