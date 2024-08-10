@@ -1,13 +1,14 @@
 #include "clicker.h"
 #include "ui_clicker.h"
 
-long long cps { 0 }, clickDmg { 1 }, balance { 0 };
+extern long long cps, clickDmg, balance;
+extern long long curClickUpgrades[];
+extern long long   curCpsUpgrades[];
+
 constexpr long long clickUpgradesBaseCost[] = { 25, 7500, 85500 };
 constexpr long long   cpsUpgradesBaseCost[] = { 10, 2500, 12500 };
 constexpr long long clickUpgrades[] = { 1, 10, 50 };
 constexpr long long   cpsUpgrades[] = { 1, 8 , 23 };
-long long curClickUpgrades[] = { 0, 0, 0 };
-long long   curCpsUpgrades[] = { 0, 0, 0 };
 constexpr double coef = 2.63;
 const QString greenButtonStyle = "QPushButton{ \
     color: white; \
@@ -40,6 +41,9 @@ Clicker::Clicker(QWidget *parent)
 {
 
     ui->setupUi(this);
+
+    savesManager.load();
+
     updTimer = new QTimer(this);
     connect(updTimer, &QTimer::timeout, this, on_upd_timer_timeout);
     updTimer->start(1000);
@@ -101,6 +105,8 @@ void Clicker::updateScreen(){
     paintCpsButtons(ui->cpsUpdBtn1, 0);
     paintCpsButtons(ui->cpsUpdBtn2, 1);
     paintCpsButtons(ui->cpsUpdBtn3, 2);
+
+    savesManager.save();
 
 };
 

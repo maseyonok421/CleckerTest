@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <QString>
 #include <QLabel>
+#include "savesmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -40,5 +41,6 @@ private slots:
 private:
     Ui::Clicker *ui;
     QTimer *updTimer;
+    SavesManager savesManager;
 };
 #endif // CLICKER_H
