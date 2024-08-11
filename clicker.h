@@ -35,8 +35,7 @@ private slots:
     void paintButtons();
 
 
-    void on_clickUpdBtn_clicked( int idx );
-    void on_cpsUpdBtn_clicked(   int idx );
+    void on_updBtn_clicked( int idx, int type );
 
     void on_clickUpdBtn1_clicked();
     void on_clickUpdBtn2_clicked();

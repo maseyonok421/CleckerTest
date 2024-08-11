@@ -107,52 +107,47 @@ void Clicker::on_clickBtn_clicked()
     updateScreen();
 }
 
-void Clicker::on_clickUpdBtn_clicked( int idx ){
+void Clicker::on_updBtn_clicked( int idx, int type ){
 
-    int curCost = clickUpgradesBaseCost[idx] * pow(coef, curClickUpgrades[idx]);
+    int curCost = ((!type) ? clickUpgradesBaseCost[idx] : cpsUpgradesBaseCost[idx]) *
+        pow(coef, ((!type) ? curClickUpgrades[idx] : curCpsUpgrades[idx]));
     if ( balance >= curCost ){
         balance -= curCost;
-        curClickUpgrades[idx] ++;
-        clickDmg += clickUpgrades[0];
+        if ( !type ){
+            curClickUpgrades[idx] ++;
+            clickDmg += clickUpgrades[0];
+        }
+        else{
+            curCpsUpgrades[idx] ++;
+            cps += cpsUpgrades[idx];
+        }
         updateScreen();
     }
-
-};
-void Clicker::on_cpsUpdBtn_clicked( int idx ){
-
-    int curCost = cpsUpgradesBaseCost[idx] * pow(coef, curCpsUpgrades[idx]);
-    if (balance >= curCost){
-        balance -= curCost;
-        curCpsUpgrades[idx] ++;
-        cps += cpsUpgrades[idx];
-        updateScreen();
-    }
-
 };
 
 void Clicker::on_clickUpdBtn1_clicked()
 {
-    on_clickUpdBtn_clicked(0);
+    on_updBtn_clicked(0, 0);
 }
 void Clicker::on_clickUpdBtn2_clicked()
 {
-    on_clickUpdBtn_clicked(1);
+    on_updBtn_clicked(1, 0);
 }
 void Clicker::on_clickUpdBtn3_clicked()
 {
-    on_clickUpdBtn_clicked(2);
+    on_updBtn_clicked(2, 0);
 }
 
 void Clicker::on_cpsUpdBtn1_clicked()
 {
-    on_cpsUpdBtn_clicked(0);
+    on_updBtn_clicked(0, 1);
 }
 void Clicker::on_cpsUpdBtn2_clicked()
 {
-    on_cpsUpdBtn_clicked(1);
+    on_updBtn_clicked(1, 1);
 }
 void Clicker::on_cpsUpdBtn3_clicked()
 {
-    on_cpsUpdBtn_clicked(2);
+    on_updBtn_clicked(2, 1);
 }
 
