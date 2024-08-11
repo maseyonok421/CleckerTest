@@ -9,7 +9,7 @@ SavesManager::SavesManager() {}
 
 void SavesManager::save(){
 
-    std::ofstream fout("./save.txt");
+    std::ofstream fout("save.txt");
     fout << VERSION << ' ' << cps << ' ' << clickDmg << ' ' << balance << ' ';
     for ( int i = 0; i < 3; i ++ ) fout << curClickUpgrades[i] << ' ';
     for ( int i = 0; i < 3; i ++ ) fout <<   curCpsUpgrades[i] << ' ';
@@ -19,10 +19,11 @@ void SavesManager::save(){
 
 void SavesManager::load(){
 
-    std::ifstream fin("./save.txt");
+    std::ifstream fin("save.txt");
     if (fin.is_open()){
-        fin >> VERSION;
-        if (VERSION == 0){
+        long long _VERSION;
+        fin >> _VERSION;
+        if (_VERSION == 1){
             fin >> cps >> clickDmg >> balance;
             for ( int i = 0; i < 3; i ++ ) fin >> curClickUpgrades[i];
             for ( int i = 0; i < 3; i ++ ) fin >>   curCpsUpgrades[i];
